@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title text-left">Registration Form</h1>
+            <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata)">
+              <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname"  formControlName="FirstName" 
+                class="form-control" ngModel >
+                <div *ngIf="!formdata.controls.FirstName?.valid && 
+                (formdata.controls.FirstName?.dirty || formdata.controls.FirstName?.touched)">
+                    FirstName is Invalid
+                </div>
+              </div>
+              <br/>
+              <br/>
+              <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname"formControlName="LastName" 
+                class="form-control" ngModel>
+                <div *ngIf="!formdata.controls.LastName.valid && 
+                (formdata.controls.LastName.dirty || formdata.controls.LastName.touched)">
+                    LastName is Invalid
+                </div>
+              </div>
+              <br/>
+              <br/>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone"  formControlName="Phone" class="form-control" ngModel>
+                <div *ngIf="!formdata.controls.Phone.valid && 
+                (formdata.controls.Phone.dirty || formdata.controls.Phone.touched)">
+                    Phone Number is Invalid
+                </div>  
+              </div>
+              <br/>
+              <br/>
+              <div class="form-group">
+                <label for="gender">Gender:</label><br>
+                <div>
+                <input type="radio" id="male"  value="Male" 
+                formControlName="Gender" class="form-check-input" ngModel>&nbsp;
+                <label for="male" class="form-check-label">&nbsp; Male &nbsp;</label>&nbsp;
+                <input  type="radio" id="female"  value="Female" 
+                formControlName="Gender" class="form-check-input" ngModel>&nbsp;
+                <label for="female" class="form-check-label">&nbsp; Female</label>
+                
+              </div>
+              </div>
+              <br/>
+              <br/>
+              <button type="submit" [disabled]="!formdata.valid" 
+              class="btn btn-primary btn-block">Click here</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
